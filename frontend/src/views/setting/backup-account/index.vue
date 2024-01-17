@@ -212,7 +212,7 @@
                                     round
                                     plain
                                     :disabled="oneDriveData.id === 0"
-                                    @click="onOpenDialog('edit', 'SFTP', oneDriveData)"
+                                    @click="onOpenDialog('edit', 'OneDrive', oneDriveData)"
                                 >
                                     {{ $t('commons.button.edit') }}
                                 </el-button>
@@ -226,6 +226,23 @@
                             <el-form-item :label="$t('setting.backupDir')">
                                 <span v-if="oneDriveData.backupPath">{{ oneDriveData.backupPath }}</span>
                                 <span v-else>{{ $t('setting.unSetting') }}</span>
+                            </el-form-item>
+                            <el-form-item :label="$t('setting.refreshTime')">
+                                <span>{{ oneDriveData.varsJson['refresh_time'] }}</span>
+                            </el-form-item>
+                            <el-form-item :label="$t('setting.refreshStatus')">
+                                <el-tag v-if="oneDriveData.varsJson['refresh_status'] === 'Success'" type="success">
+                                    {{ $t('commons.status.success') }}
+                                </el-tag>
+                                <el-tooltip
+                                    v-if="oneDriveData.varsJson['refresh_status'] === 'Failed'"
+                                    :content="oneDriveData.varsJson['refresh_msg']"
+                                    placement="top"
+                                >
+                                    <el-tag type="danger">
+                                        {{ $t('commons.status.failed') }}
+                                    </el-tag>
+                                </el-tooltip>
                             </el-form-item>
                             <el-form-item :label="$t('commons.table.createdAt')">
                                 {{ dateFormat(0, 0, oneDriveData.createdAt) }}
@@ -536,7 +553,9 @@ const oneDriveData = ref<Backup.BackupInfo>({
     backupPath: '',
     vars: '',
     varsJson: {
-        redirectURI: '',
+        refresh_msg: '',
+        refresh_time: '',
+        refresh_status: '',
     },
     createdAt: new Date(),
 });
