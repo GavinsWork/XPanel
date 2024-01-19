@@ -96,11 +96,11 @@ const handleClose = () => {
 };
 
 const toDoc = () => {
-    window.open('https://1panel.cn/docs/', '_blank', 'noopener,noreferrer');
+    window.open('https://docs.xswitch.cn', '_blank', 'noopener,noreferrer');
 };
 
 const toForum = () => {
-    window.open('https://bbs.fit2cloud.com/c/1p/7', '_blank');
+    window.open('https://docs.xswitch.cn', '_blank');
 };
 
 const onLoadUpgradeInfo = async () => {

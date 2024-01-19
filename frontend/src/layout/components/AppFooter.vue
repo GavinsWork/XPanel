@@ -1,6 +1,6 @@
 <template>
     <div class="footer">
-        <a href="https://fit2cloud.com/" target="_blank">Copyright © 2014-2024 FIT2CLOUD 飞致云</a>
+        <a href="https://fit2cloud.com/" target="_blank">Copyright © 2019-2024 烟台小樱桃网络科技有限公司</a>
         <SystemUpgrade :footer="true" />
     </div>
 </template>
