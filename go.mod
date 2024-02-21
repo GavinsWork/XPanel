@@ -2,6 +2,10 @@ module github.com/1Panel-dev/1Panel
 
 go 1.20
 
+replace (
+	github.com/spf13/viper v1.14.0 => ../viper
+)
+
 require (
 	github.com/aliyun/aliyun-oss-go-sdk v2.2.5+incompatible
 	github.com/aws/aws-sdk-go v1.44.99
